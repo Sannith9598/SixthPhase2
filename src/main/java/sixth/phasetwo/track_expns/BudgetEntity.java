@@ -25,6 +25,14 @@ public class BudgetEntity {
 
     private double totalExpenses = 0;
 
+    private double remainingBudget;
+
+    public double getRemainingBudget() {
+        return remainingBudget;
+    }
+    public void setRemainingBudget(double remainingBudget) {
+        this.remainingBudget = remainingBudget;
+    }
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 

@@ -8,6 +8,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 
 @Entity
@@ -19,7 +20,7 @@ public class ExpenseEntity {
     private String type;
     @Min(value = 1, message = "Amount must be greater than or equal to 1")
     private double amount;
-    @Column(nullable = true)
+    @NotNull(message = "Budget ID must not be null")
     private int budgetId;
 
     public int getId() {
