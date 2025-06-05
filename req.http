@@ -1,9 +1,9 @@
 @base = http://localhost:8082/api/expenses
 
- GET      {{base}}/view/1
-
+POST {{base}}/new
 Content-Type: application/json
 
 {
-    
+    "type":"",
+    "amount":1
 }

@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api/expenses")
 public class ExpenseController {
@@ -20,7 +22,7 @@ public class ExpenseController {
     private ExpenseService expenseService;
 
     @PostMapping("/new")
-    public ResponseEntity<ExpenseEntity> createExpense(@RequestBody ExpenseEntity expense) {
+    public ResponseEntity<ExpenseEntity> createExpense(@Valid @RequestBody ExpenseEntity expense) {
         return ResponseEntity.ok(expenseService.createExpense(expense));
     }
 
@@ -36,7 +38,7 @@ public class ExpenseController {
     }
 
     @PutMapping("update/{id}")
-    public ResponseEntity<ExpenseEntity> updateExpense(@PathVariable int id, @RequestBody ExpenseEntity expense) {
+    public ResponseEntity<ExpenseEntity> updateExpense(@PathVariable int id, @Valid @RequestBody ExpenseEntity expense) {
         return ResponseEntity.ok(expenseService.updateExpense(id, expense));
     }
 
