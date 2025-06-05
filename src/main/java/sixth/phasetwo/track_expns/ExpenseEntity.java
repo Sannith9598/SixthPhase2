@@ -1,6 +1,5 @@
 package sixth.phasetwo.track_expns;
 
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,8 +7,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-
 
 @Entity
 public class ExpenseEntity {
@@ -20,7 +17,7 @@ public class ExpenseEntity {
     private String type;
     @Min(value = 1, message = "Amount must be greater than or equal to 1")
     private double amount;
-    @NotNull(message = "Budget ID must not be null")
+    @Column(nullable = false)
     private int budgetId;
 
     public int getId() {

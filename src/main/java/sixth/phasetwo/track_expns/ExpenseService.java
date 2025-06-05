@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 public class ExpenseService {
      @Autowired
     private ExpenseRepository expenseRepository;
+    
 
     public ExpenseEntity createExpense(ExpenseEntity expense) {
         return expenseRepository.save(expense);
