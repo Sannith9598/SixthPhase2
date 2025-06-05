@@ -26,6 +26,11 @@ public class ExpenseController {
         return ResponseEntity.ok(expenseService.createExpense(expense));
     }
 
+    @GetMapping("/by-budget/{budgetId}")
+    public List<ExpenseEntity> getExpensesByBudget(@PathVariable int budgetId) {
+        return expenseService.getExpensesByBudgetId(budgetId);
+    }
+
     @GetMapping("/view")
     public ResponseEntity<List<ExpenseEntity>> getAllExpenses() {
         return ResponseEntity.ok(expenseService.getAllExpenses());

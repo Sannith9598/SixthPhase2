@@ -1,6 +1,8 @@
 package sixth.phasetwo.track_expns;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -47,5 +49,24 @@ public class BudgetController {
     public ResponseEntity<String> delete(@PathVariable int id) {
         service.deleteBudget(id);
         return ResponseEntity.ok("Budget deleted.");
+    }
+    @GetMapping("/low-budget-alert")
+    public ResponseEntity<List<Integer>> getLowBudgetIds() {
+        List<BudgetEntity> allBudgets = service.getAllBudgets();
+        List<Integer> lowBudgetIds = new ArrayList<>();
+
+        for (BudgetEntity budget : allBudgets) {
+            if (budget.getRemainingAmount() < 0) { // or <= 0 based on your logic
+                lowBudgetIds.add(budget.getId());
+            }
+        }
+            if (lowBudgetIds.isEmpty()) {
+            return ResponseEntity.ok(lowBudgetIds);
+        }
+        return ResponseEntity.ok(lowBudgetIds);
+    }
+    @GetMapping("/summary/{id}")
+    public ResponseEntity<Map<String, Object>> getSummary(@PathVariable int id) {
+        return ResponseEntity.ok(service.getBudgetSummary(id));
     }
 }

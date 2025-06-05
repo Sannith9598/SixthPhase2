@@ -1,11 +1,7 @@
 @budget = http://localhost:8082/api/budgets
 
-GET {{budget}}/view
-
-Content-Type: application/json
-
-{
-}
+# GET {{budget}}/view
+# Content-Type: application/json   
 
 # DELETE  {{budget}}/delete/1
 
@@ -21,15 +17,17 @@ Content-Type: application/json
 # {
 
 # }
+
 # POST {{budget}}/new
 # Content-Type: application/json
 
 # {
-#     "type": "salary",
-#     "income": 5000,
-#     "date": "2023-10-01"
     
+#     "type": "hotelbusiness",
+#     "income": 50000
+   
 # }
+
 # POST {{budget}}/new
 # Content-Type: application/json
 
@@ -39,7 +37,7 @@ Content-Type: application/json
     
 # }
 
-# PUT  {{budget}}/update/3
+# PUT  {{budget}}/update/1
 # Content-Type: application/json
 
 # {
@@ -48,13 +46,75 @@ Content-Type: application/json
 #     "date": "2023-10-01"
     
 # }
+# POST {{budget}}/new
+# Content-Type: application/json
 
-@base = http://localhost:8082/api/expenses
-GET {{base}}/view
+# {
+    
+#     "type": "hotelbusiness",
+#     "income": 50000
+   
+# }
+
+# GET {{budget}}/low-budget-alert
+# Content-Type: application/json
+
+GET {{budget}}/summary/1
 Content-Type: application/json
 
-{
-}
+###
+@base = http://localhost:8082/api/expenses
+# GET {{base}}/view
+# Content-Type: application/json
+
+# {
+# }
+
+# POST  {{base}}/new
+# Content-Type: application/json
+
+# {
+#     "type": "eductaion",
+#     "amount": 20001.0,
+#     "budgetId": 2
+# }
+
+# POST  {{base}}/new
+# Content-Type: application/json
+
+# {
+#     "type": "eductaion",
+#     "amount": 8977.0,
+#     "budgetId": 1
+# }
+
+# POST  {{base}}/new
+# Content-Type: application/json
+
+# {
+#     "type": "eductaion",
+#     "amount": 150.0,
+#     "budgetId": 2
+# }
+
+# POST  {{base}}/new
+# Content-Type: application/json
+
+# {
+#     "type": "eductaion",
+#     "amount": 150.0,
+#     "budgetId": 1
+# }
+
+# POST  {{base}}/new
+# Content-Type: application/json
+
+# {
+#     "type": "eductaion",
+#     "amount": 20000.0,
+#     "budgetId": 3
+# }
+
 
 # PUT {{base}}/update/4
 # Content-Type: application/json
@@ -83,11 +143,10 @@ Content-Type: application/json
 #     "budgetId": 4
 # }
 
-# PUT {{base}}/update/5
+
+
+# DELETE  {{base}}/delete/3
 # Content-Type: application/json
 
 # {
-#     "type": "food",
-#     "amount": 300.0,
-#     "budgetId": 5
 # }

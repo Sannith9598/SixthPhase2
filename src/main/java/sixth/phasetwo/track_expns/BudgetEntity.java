@@ -23,16 +23,18 @@ public class BudgetEntity {
 
     private LocalDate date = LocalDate.now();
 
-    private double totalExpenses = 0;
+    private double totalExpenses = 0.0;
 
-    private double remainingBudget;
+    private double remainingAmount=0.0;
 
-    public double getRemainingBudget() {
-        return remainingBudget;
+    public double getRemainingAmount() {
+        return remainingAmount;
     }
-    public void setRemainingBudget(double remainingBudget) {
-        this.remainingBudget = remainingBudget;
+
+    public void setRemainingAmount(double remainingAmount) {
+        this.remainingAmount = remainingAmount;
     }
+    
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 
