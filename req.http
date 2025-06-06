@@ -1,6 +1,6 @@
 @budget = http://localhost:8082/api/budgets
 
-# GET {{budget}}/view
+GET {{budget}}/view
 # Content-Type: application/json   
 
 # DELETE  {{budget}}/delete/1
@@ -58,13 +58,13 @@
 
 # GET {{budget}}/low-budget-alert
 # Content-Type: application/json
-
-GET {{budget}}/summary/1
-Content-Type: application/json
-
 ###
+GET {{budget}}/summary/2
+# Content-Type: application/json
+
+### 
 @base = http://localhost:8082/api/expenses
-# GET {{base}}/view
+GET {{base}}/view
 # Content-Type: application/json
 
 # {
