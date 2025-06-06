@@ -1,6 +1,7 @@
 @budget = http://localhost:8082/api/budgets
 
 GET {{budget}}/view
+Authorization: Basic Sannith:12345
 # Content-Type: application/json   
 
 # DELETE  {{budget}}/delete/1

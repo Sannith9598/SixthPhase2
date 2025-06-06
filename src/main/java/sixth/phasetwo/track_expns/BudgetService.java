@@ -73,13 +73,12 @@ public class BudgetService {
         repo.deleteById(id);
     }
 
-    public boolean isLowBudget(int budgetId) {
-        double threshold = 1.0; // Default value
-        Optional<BudgetEntity> opt = getBudgetById(budgetId);
-        return opt.isPresent() && opt.get().getRemainingAmount() < threshold;
-    }   
-
-        public Map<String, Object> getBudgetSummary(int id) {
+   public boolean isLowBudget(int id) {
+        Optional<BudgetEntity> optional = repo.findById(id);
+        return optional.isPresent() && optional.get().getRemainingAmount() < 0;
+         }
+         
+    public Map<String, Object> getBudgetSummary(int id) {
         BudgetEntity budget = repo.findById(id)
                                 .orElseThrow(() -> new RuntimeException("Budget not found"));
 
